@@ -53,3 +53,7 @@ Here are some ways you can get involved:
 <p align="center">
   <img src="img/case.png" alt="Electrical Diagram" width="600">
 </p>
+
+<p align="center">
+  <img src="img/caseAWI.png" alt="Electrical Diagram" width="600">
+</p>
