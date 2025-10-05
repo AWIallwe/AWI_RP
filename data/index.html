@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDryer Pro - Sistema Profissional de Secagem de Filamentos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg class="flame-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>SmartDryer Pro</h1>
+                        <p>Sistema Profissional de Secagem de Filamentos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Secagem Profissional de <span class="gradient-text">Filamentos 3D</span></h2>
+                    <p>Controle preciso de temperatura e umidade para garantir a qualidade dos seus filamentos de
+                        impressão 3D.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-dot heat"></div>
+                            <span>Até 60°C</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-dot blue"></div>
+                            <span>Umidade &lt; 5%</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-dot success"></div>
+                            <span>Timer Programável</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="filament-dryer-hero.jpg" alt="SmartDryer Professional">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="card status-card">
+                <div class="card-content">
+                    <div class="status-info">
+                        <div class="status-icon-container">
+                            <svg class="status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12,6 12,12 16,14" />
+                            </svg>
+                        </div>
+                        <div class="status-text">
+                            <h3 id="status-label">Standby</h3>
+                            <p id="time-remaining">Tempo restante: --:--:--</p>
+                        </div>
+                    </div>
+                    <div class="status-indicator" id="status-dot"></div>
+                </div>
+            </div>
+
+            <div class="gauges">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="gauge-header">
+                            <div class="gauge-icon temp-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Temperatura</h3>
+                                <p>Atual / Alvo</p>
+                            </div>
+                        </div>
+                        <div class="gauge-content">
+                            <div class="gauge-values">
+                                <span class="current-value" id="current-temp">0.0</span>
+                                <span class="target-value">/ <span id="target-temp">0</span>°C</span>
+                            </div>
+                            <div class="gauge-bar">
+                                <div class="gauge-track">
+                                    <div class="gauge-target" id="temp-target-indicator"></div>
+                                    <div class="gauge-progress temp-progress" id="temp-progress"></div>
+                                </div>
+                            </div>
+                            <div class="gauge-labels">
+                                <span>0°C</span>
+                                <span>60°C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="gauge-header">
+                            <div class="gauge-icon humidity-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
+                                    <path
+                                        d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Umidade</h3>
+                                <p>Relativa / Absoluta</p>
+                            </div>
+                        </div>
+                        <div class="gauge-content">
+
+                            <div class="humidity-section">
+                                <div class="gauge-values">
+                                    <span class="current-value" id="humidity-relative">0.0</span>
+                                    <span class="unit">% (Relativa)</span>
+                                </div>
+                                <div class="gauge-bar">
+                                    <div class="gauge-track">
+                                        <div class="gauge-progress humidity-relative-progress"
+                                            id="humidity-relative-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="gauge-labels">
+                                    <span>0%</span>
+                                    <span>100%</span>
+                                </div>
+                            </div>
+
+
+                            <div class="humidity-section">
+                                <div class="gauge-values">
+                                    <span class="current-value" id="humidity-absolute">0.0</span>
+                                    <span class="unit">g/m³ (Absoluta)</span>
+                                </div>
+                                <div class="gauge-bar">
+                                    <div class="gauge-track">
+                                        <div class="gauge-progress humidity-absolute-progress"
+                                            id="humidity-absolute-progress"></div>
+                                    </div>
+                                </div>
+                                <div class="gauge-labels">
+                                    <span>0 g/m³</span>
+                                    <span>20 g/m³</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Controles</h3>
+                    <button class="settings-btn" id="settings-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V6a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <div class="control-buttons" id="control-buttons">
+                        <button class="btn btn-primary" id="start-btn">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polygon points="5,3 19,12 5,21" />
+                            </svg>
+                            Iniciar
+                        </button>
+                    </div>
+                    <div class="settings-panel" id="settings-panel">
+
+                        <div class="TipoFilamento">
+                            <select id="Filamento" name="Filamento">
+                                <option value="PLA" selected>PLA</option>
+                                <option value="PETG">PETG</option>
+                                <option value="ABS">ABS</option>
+                                <option value="TPU">TPU</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="target-temp-input">Temperatura Alvo (°C)</label>
+                            <input type="number" id="target-temp-input" min="0" max="60" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="switch-group">
+                                <input type="checkbox" id="infinite-timer" class="switch">
+                                <label for="infinite-timer" class="switch-label">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 8c.5-1 1-1.5 2-1.5s1.5.5 2 1.5-1 1.5-2 1.5-1.5-.5-2-1.5z" />
+                                        <path d="M15 14c.5-1 1-1.5 2-1.5s1.5.5 2 1.5-1 1.5-2 1.5-1.5-.5-2-1.5z" />
+                                        <path d="M7 8c0 2.5 2 4.5 4.5 4.5S16 10.5 16 8" />
+                                        <path d="M17 14c0 2.5-2 4.5-4.5 4.5S8 16.5 8 14" />
+                                    </svg>
+                                    Tempo Infinito
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="timer-group" id="timer-group">
+                            <label>Timer</label>
+                            <div class="timer-inputs">
+                                <input type="number" id="timer-hours" min="0" max="23" value="0" placeholder="Horas">
+                                <span>:</span>
+                                <input type="number" id="timer-minutes" min="0" max="59" value="0"
+                                    placeholder="Minutos">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Histórico de Dados</h3>
+                </div>
+                <div class="card-content">
+                    <div class="chart-container">
+                        <canvas id="myChart" width="600" height="300"></canvas>
+                        <p class="LabelGrafico" id="Setpoint">0ºC</p>
+                        <p class="LabelGrafico" id="UmidadeRelativa">0%</p>
+                        <p class="LabelGrafico" id="UmidadeAbsoluta">0%</p>
+                        <p class="LabelGrafico" id="TemperaturaReal">0ºC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
