@@ -47,5 +47,9 @@ Here are some ways you can get involved:
 ## 🗂️ Repository Structure (suggested)
 
 <p align="center">
-  <img src="ElectricalDiagram.jpeg" alt="Electrical Diagram" width="600">
+  <img src="img/ElectricalDiagram.jpeg" alt="Electrical Diagram" width="600">
+</p>
+
+<p align="center">
+  <img src="img/case.png" alt="Electrical Diagram" width="600">
 </p>
